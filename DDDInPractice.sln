@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28531.58
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDInPractice.Logic", "DDDInPractice.Logic\DDDInPractice.Logic.csproj", "{687AE1BC-9F5F-4FCC-8A5B-03F97FE056CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDInPractice.Tests", "DDDInPractice.Tests\DDDInPractice.Tests.csproj", "{93BE415B-3839-4D88-8B9B-D7F15E2886E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{687AE1BC-9F5F-4FCC-8A5B-03F97FE056CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687AE1BC-9F5F-4FCC-8A5B-03F97FE056CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687AE1BC-9F5F-4FCC-8A5B-03F97FE056CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687AE1BC-9F5F-4FCC-8A5B-03F97FE056CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BE415B-3839-4D88-8B9B-D7F15E2886E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BE415B-3839-4D88-8B9B-D7F15E2886E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BE415B-3839-4D88-8B9B-D7F15E2886E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BE415B-3839-4D88-8B9B-D7F15E2886E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6505E90-8DAA-4054-B355-A90360CEF118}
+	EndGlobalSection
+EndGlobal
