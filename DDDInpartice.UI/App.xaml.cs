@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using DddInPractice.Logic;
 
 namespace DDDInpartice.UI
 {
@@ -13,5 +14,9 @@ namespace DDDInpartice.UI
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Initer.Init(@"Server=.;Database=DddInPractice;Trusted_Connection=true");
+        }
     }
 }

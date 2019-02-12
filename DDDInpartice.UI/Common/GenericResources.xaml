@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:ui="clr-namespace:DDDInpartice.UI">
-    <DataTemplate x:Key="SnackMachineViewModel" DataType="ui:SnackMachineViewModel">
+                    xmlns:ui="clr-namespace:DDDInpartice.UI"
+                    xmlns:viewModels="clr-namespace:DDDInPractice.UI.ViewModels">
+    <DataTemplate x:Key="SnackMachineViewModel" DataType="viewModels:SnackMachineViewModel">
         
         <Grid>
             <Grid.ColumnDefinitions>
