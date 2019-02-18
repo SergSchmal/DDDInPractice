@@ -39,7 +39,7 @@ namespace DDDInPractice.UI.ViewModels
             private set
             {
                 _message = value;
-                Notify();
+                OnPropertyChanged();
             }
         }
 
@@ -79,8 +79,8 @@ namespace DDDInPractice.UI.ViewModels
         private void NotifyClient(string message)
         {
             Message = message;
-            Notify(nameof(MoneyInTransaction));
-            Notify(nameof(MoneyInside));
+            OnPropertyChanged(nameof(MoneyInTransaction));
+            OnPropertyChanged(nameof(MoneyInside));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DDDInPractice.UI.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
         
-        protected void Notify([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
