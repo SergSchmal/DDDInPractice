@@ -86,13 +86,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\Command.cs" />
-    <Compile Include="Logic\Entity.cs" />
-    <Compile Include="Logic\Initer.cs" />
-    <Compile Include="Logic\Money.cs" />
-    <Compile Include="Logic\SessionFactory.cs" />
-    <Compile Include="Logic\SnackMachine.cs" />
-    <Compile Include="Logic\SnackMachineMap.cs" />
-    <Compile Include="Logic\ValueObject.cs" />
     <Compile Include="ViewModels\SnackMachineViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\SnackMachineView.xaml.cs">
@@ -142,6 +135,12 @@
     <Resource Include="Images\Gum.png" />
     <Resource Include="Images\Icon.png" />
     <Resource Include="Images\Soda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DDDInPractice.Logic\DDDInPractice.Logic.csproj">
+      <Project>{CD6C07B4-8BCE-4CD9-98C3-759E6BBB34BD}</Project>
+      <Name>DDDInPractice.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

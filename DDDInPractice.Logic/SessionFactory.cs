@@ -6,10 +6,8 @@ using FluentNHibernate.Conventions.AcceptanceCriteria;
 using FluentNHibernate.Conventions.Helpers;
 using FluentNHibernate.Conventions.Instances;
 using NHibernate;
-using NHibernate.Mapping;
-using ForeignKey = FluentNHibernate.Conventions.Helpers.ForeignKey;
 
-namespace DddInPractice.Logic
+namespace DDDInPractice.Logic
 {
     public static class SessionFactory
     {

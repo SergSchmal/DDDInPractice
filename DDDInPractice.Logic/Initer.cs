@@ -1,4 +1,4 @@
-﻿namespace DddInPractice.Logic
+﻿namespace DDDInPractice.Logic
 {
     public static class Initer
     {

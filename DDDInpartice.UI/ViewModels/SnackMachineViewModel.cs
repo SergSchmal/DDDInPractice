@@ -1,5 +1,4 @@
-﻿using DddInPractice.Logic;
-using DddInPractice.UI.Common;
+﻿using DddInPractice.UI.Common;
 using DDDInPractice.Logic;
 using NHibernate;
 

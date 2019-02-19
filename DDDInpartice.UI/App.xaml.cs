@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using DddInPractice.Logic;
+﻿using System.Windows;
+using DDDInPractice.Logic;
 
-namespace DDDInpartice.UI
+namespace DDDInPractice.UI
 {
     /// <summary>
     /// Interaction logic for App.xaml
