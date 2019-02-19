@@ -86,6 +86,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\Command.cs" />
+    <Compile Include="Logic\Entity.cs" />
+    <Compile Include="Logic\Initer.cs" />
+    <Compile Include="Logic\Money.cs" />
+    <Compile Include="Logic\SessionFactory.cs" />
+    <Compile Include="Logic\SnackMachine.cs" />
+    <Compile Include="Logic\SnackMachineMap.cs" />
+    <Compile Include="Logic\ValueObject.cs" />
     <Compile Include="ViewModels\SnackMachineViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\SnackMachineView.xaml.cs">
@@ -123,12 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DDDInPractice.Logic\DDDInPractice.Logic.csproj">
-      <Project>{687AE1BC-9F5F-4FCC-8A5B-03F97FE056CD}</Project>
-      <Name>DDDInPractice.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\10c.png" />
