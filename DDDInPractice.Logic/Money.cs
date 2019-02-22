@@ -4,6 +4,9 @@ namespace DDDInPractice.Logic
 {
     public class Money : ValueObject<Money>
     {
+        public Money()
+        {}
+
         public static readonly Money None = new Money(0,0,0,0,0,0);
         public static readonly Money Cent = new Money(1,0,0,0,0,0);
         public static readonly Money TenCent = new Money(0,1,0,0,0,0);
@@ -27,7 +30,7 @@ namespace DDDInPractice.Logic
             FiveDollarCount * 5 +
             TwentyDollarCount * 20;
 
-        public Money(int oneCentCount, int tenCentCount, int quarterCount, int oneDollarCount, int fiveDollarCount, int twentyDollarCount)
+        public Money(int oneCentCount, int tenCentCount, int quarterCount, int oneDollarCount, int fiveDollarCount, int twentyDollarCount) : this()
         {
             if (oneCentCount < 0)
                 throw new InvalidOperationException();
@@ -99,7 +102,7 @@ namespace DDDInPractice.Logic
         public override string ToString()
         {
             if (Amount < 1)
-                return "c" + (Amount * 100).ToString("0");
+                return "¢" + (Amount * 100).ToString("0");
 
             return "$" + (Amount).ToString("0.00");
         }

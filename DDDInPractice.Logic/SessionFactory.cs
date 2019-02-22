@@ -35,6 +35,7 @@ namespace DDDInPractice.Logic
                             .When(criteria => criteria.Expect(x => x.Nullable, Is.Not.Set), x => x.Not.Nullable()))
                     .Conventions.Add<TableNameConvention>()
                     .Conventions.Add<HiLoConvention>()
+                    .Conventions.Add(DefaultLazy.Never())
                 );
 
             return configuration.BuildSessionFactory();

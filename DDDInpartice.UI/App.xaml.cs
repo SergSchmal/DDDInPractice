@@ -10,7 +10,7 @@ namespace DDDInPractice.UI
     {
         public App()
         {
-            Initer.Init(@"Server=.;Database=DddInPractice;Trusted_Connection=true");
+            Initer.Init(@"Server=.\SQLEXPRESS;Database=DddInPractice;Trusted_Connection=true");
         }
     }
 }

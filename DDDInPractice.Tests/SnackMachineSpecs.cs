@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DDDInPractice.Logic;
 using FluentAssertions;
 using Xunit;
@@ -43,16 +44,17 @@ namespace DDDInPractice.Tests
         }
 
         [Fact]
-        public void MoneyInTransactionGoesToMoneyInsideAfterPurchase()
+        public void BuySnackTradesInsertedMoneyForASnack()
         {
             var snackMachine = new SnackMachine();
-            snackMachine.InsertMoney(Dollar);
+            snackMachine.LoadSnacks(1, new SnackPile(new Snack("Some snack"), 10, 1m));
             snackMachine.InsertMoney(Dollar);
 
-            snackMachine.BuySnack();
+            snackMachine.BuySnack(1);
 
             snackMachine.MoneyInTransaction.Amount.Should().Be(0.00m);
-            snackMachine.MoneyInside.Amount.Should().Be(2);
+            snackMachine.MoneyInside.Amount.Should().Be(1m);
+            snackMachine.GetSnackPile(1).Quantity.Should().Be(9);
         }
 
         [Fact]
