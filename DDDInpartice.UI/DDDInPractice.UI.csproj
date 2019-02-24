@@ -88,6 +88,7 @@
     <Compile Include="Common\Command.cs" />
     <Compile Include="ViewModels\SnackMachineViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\SnackPileViewModel.cs" />
     <Compile Include="Views\SnackMachineView.xaml.cs">
       <DependentUpon>SnackMachineView.xaml</DependentUpon>
       <SubType>Code</SubType>

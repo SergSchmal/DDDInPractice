@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using DDDInPractice.Logic;
 using DDDInPractice.UI.ViewModels;
 
 namespace DDDInPractice.UI.Views
@@ -8,12 +9,12 @@ namespace DDDInPractice.UI.Views
     /// </summary>
     public partial class SnackMachineView : Window
     {
-        private readonly SnackMachineViewModel _viewModel = new SnackMachineViewModel();
-
         public SnackMachineView()
         {
             InitializeComponent();
-            DataContext = _viewModel;
+            var snackMachine = new SnackMachineRepository().GetById(1);
+            var viewModel = new SnackMachineViewModel(snackMachine);
+            DataContext = viewModel;
         }
     }
 }

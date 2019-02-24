@@ -5,6 +5,7 @@ using FluentAssertions;
 using Xunit;
 
 using static DDDInPractice.Logic.Money;
+using static DDDInPractice.Logic.Snack;
 
 namespace DDDInPractice.Tests
 {
@@ -47,7 +48,7 @@ namespace DDDInPractice.Tests
         public void BuySnackTradesInsertedMoneyForASnack()
         {
             var snackMachine = new SnackMachine();
-            snackMachine.LoadSnacks(1, new SnackPile(new Snack("Some snack"), 10, 1m));
+            snackMachine.LoadSnacks(1, new SnackPile(Chocolate, 10, 1m));
             snackMachine.InsertMoney(Dollar);
 
             snackMachine.BuySnack(1);
@@ -80,7 +81,7 @@ namespace DDDInPractice.Tests
         public void CannotMakePurchaseIfNotEnoughMoneyInserted()
         {
             var snackMachine = new SnackMachine();
-            snackMachine.LoadSnacks(1, new SnackPile(new Snack("Some snack"), 1, 2m));
+            snackMachine.LoadSnacks(1, new SnackPile(Chocolate, 1, 2m));
             snackMachine.InsertMoney(Dollar);
 
             Action action = () => snackMachine.BuySnack(1);
@@ -108,7 +109,7 @@ namespace DDDInPractice.Tests
         public void AfterPurchaseChangeIsReturned()
         {
             var snackMachine = new SnackMachine();
-            snackMachine.LoadSnacks(1, new SnackPile(new Snack("Some snack"), 1, 0.5m));
+            snackMachine.LoadSnacks(1, new SnackPile(Chocolate, 1, 0.5m));
             snackMachine.LoadMoney(TenCent * 10);
 
             snackMachine.InsertMoney(Dollar);
@@ -122,7 +123,7 @@ namespace DDDInPractice.Tests
         public void CannotBuySnackIfNotEnoughChange()
         {
             var snackMachine = new SnackMachine();
-            snackMachine.LoadSnacks(1, new SnackPile(new Snack("Some snack"), 1, 0.5m));
+            snackMachine.LoadSnacks(1, new SnackPile(Chocolate, 1, 0.5m));
             snackMachine.InsertMoney(Dollar);
 
             Action action = () => snackMachine.BuySnack(1);

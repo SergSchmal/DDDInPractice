@@ -120,7 +120,7 @@ namespace DDDInPractice.Logic
             return "$" + (Amount).ToString("0.00");
         }
 
-        public Money Allocate(decimal amount)
+        public Money AllocateCore(decimal amount)
         {
             int twentyDollarCount = Math.Min((int)(amount / 20), TwentyDollarCount);
             amount = amount - twentyDollarCount * 20;
@@ -140,6 +140,20 @@ namespace DDDInPractice.Logic
             int oneCentCount = Math.Min((int)(amount / 0.01m), OneCentCount);
 
             return new Money(oneCentCount, tenCentCount, quarterCount, oneDollarCount, fiveDollarCount, twentyDollarCount);
+        }
+
+        public Money Allocate(decimal amount)
+        {
+            if (!CanAllocate(amount))
+                throw new InvalidOperationException();
+
+            return AllocateCore(amount);
+        }
+
+        public bool CanAllocate(decimal amount)
+        {
+            Money money = AllocateCore(amount);
+            return money.Amount == amount;
         }
     }
 }

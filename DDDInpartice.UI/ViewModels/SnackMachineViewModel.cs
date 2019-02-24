@@ -1,4 +1,7 @@
-﻿using DddInPractice.UI.Common;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using DddInPractice.UI.Common;
 using DDDInPractice.Logic;
 using NHibernate;
 
@@ -7,15 +10,15 @@ namespace DDDInPractice.UI.ViewModels
     public class SnackMachineViewModel : BaseViewModel
     {
         private readonly SnackMachine _snackMachine;
+        private readonly SnackMachineRepository _repository;
 
         private string _message = "";
 
-        public SnackMachineViewModel()
+        public SnackMachineViewModel(SnackMachine snackMachine)
         {
-            using (ISession session = SessionFactory.OpenSession())
-            {
-                _snackMachine = session.Get<SnackMachine>(1L);
-            }
+            _snackMachine = snackMachine;
+            _repository = new SnackMachineRepository();
+
 
             InsertCentCommand = new Command(() => InsertMoney(Money.Cent));
             InsertTenCentCommand = new Command(() => InsertMoney(Money.TenCent));
@@ -24,13 +27,18 @@ namespace DDDInPractice.UI.ViewModels
             InsertFiveDollarCommand = new Command(() => InsertMoney(Money.FiveDollar));
             InsertTwentyDollarCommand = new Command(() => InsertMoney(Money.TwentyDollar));
             ReturnMoneyCommand = new Command(ReturnMoney);
-            BuySnackCommand = new Command(BuySnack);
+            BuySnackCommand = new Command<string>(BuySnack);
+        }
+
+        public IReadOnlyList<SnackPileViewModel> Piles
+        {
+            get { return _snackMachine.GetAllSnackPiles().Select(x => new SnackPileViewModel(x)).ToList(); } 
         }
 
         public override string Caption => "Snack Machine";
 
         public string MoneyInTransaction => _snackMachine.MoneyInTransaction.ToString();
-        //public Money MoneyInside => _snackMachine.MoneyInside + _snackMachine.MoneyInTransaction;
+
         public Money MoneyInside => _snackMachine.MoneyInside;
 
         public string Message
@@ -50,22 +58,31 @@ namespace DDDInPractice.UI.ViewModels
         public Command InsertFiveDollarCommand { get; }
         public Command InsertTwentyDollarCommand { get; }
         public Command ReturnMoneyCommand { get; }
-        public Command BuySnackCommand { get; }
+        public Command<string> BuySnackCommand { get; }
 
-        private void BuySnack()
+        private void BuySnack(string positionString)
         {
-            _snackMachine.BuySnack(1);
-            using (ISession session = SessionFactory.OpenSession())
-            using (ITransaction transaction = session.BeginTransaction())
+            int position = int.Parse(positionString);
+
+            string error = _snackMachine.CanBuySnack(position);
+            if (error != string.Empty)
             {
-                session.SaveOrUpdate(_snackMachine);
-                transaction.Commit();
+                NotifyClient(error);
+                return;
             }
+            
+            _snackMachine.BuySnack(position);
+            _repository.Save(_snackMachine);
             NotifyClient("You have bought a snack");
         }
 
         private void ReturnMoney()
         {
+            if (_snackMachine.MoneyInTransaction == 0)
+            {
+                NotifyClient("You have no money inserted");
+                return;
+            }
             _snackMachine.ReturnMoney();
             NotifyClient("Money was returned");
         }
@@ -81,6 +98,7 @@ namespace DDDInPractice.UI.ViewModels
             Message = message;
             OnPropertyChanged(nameof(MoneyInTransaction));
             OnPropertyChanged(nameof(MoneyInside));
+            OnPropertyChanged(nameof(Piles));
         }
     }
 }

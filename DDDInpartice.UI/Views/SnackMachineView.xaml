@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:DDDInPractice.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="550"
+    Width="750"
     Height="600"
     mc:Ignorable="d">
     <Grid>
@@ -19,10 +19,36 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <DataGrid Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Piles}" IsReadOnly="True" AutoGenerateColumns="False"
+                  SelectionMode="Single" HeadersVisibility="None" GridLinesVisibility="None" IsHitTestVisible="False"
+                  BorderThickness="0" Margin="80 0 0 0" Background="White">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Path=Image}" Width="{Binding Path=ImageWidth}" Margin="0 20 0 0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel VerticalAlignment="Center" Margin="10 20 0 0">
+                                <Label Content="{Binding Path=Price}" FontSize="20" FontWeight="Bold" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Label Content="{Binding Path=Amount}" FontSize="18" FontWeight="Bold" Margin="0" Padding="0" />
+                                    <Label Content="left" Margin="3 6 0 0" Padding="0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
         <Grid
             Grid.Row="0"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
+            Grid.Column="1"
             HorizontalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -41,12 +67,31 @@
             <Button
                 Grid.Row="0"
                 Grid.Column="0"
-                Grid.ColumnSpan="3"
                 Margin="10"
                 Padding="10"
                 Command="{Binding BuySnackCommand}"
                 CommandParameter="1"
-                Content="Buy a Snack"
+                Content="Buy #1"
+                FontSize="18" />
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10"
+                Padding="10"
+                Command="{Binding BuySnackCommand}"
+                CommandParameter="2"
+                Content="Buy #2"
+                FontSize="18" />
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="10"
+                Padding="10"
+                Command="{Binding BuySnackCommand}"
+                CommandParameter="3"
+                Content="Buy #3"
                 FontSize="18" />
 
             <StackPanel
