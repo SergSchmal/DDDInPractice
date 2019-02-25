@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using DDDInPractice.Logic;
+using DDDInPractice.Logic.SnackMachines;
 using FluentAssertions;
 using Xunit;
 
-using static DDDInPractice.Logic.Money;
-using static DDDInPractice.Logic.Snack;
+using static DDDInPractice.Logic.SharedKernel.Money;
+using static DDDInPractice.Logic.SnackMachines.Snack;
 
 namespace DDDInPractice.Tests
 {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DDDInPractice.UI.ViewModels
+namespace DDDInPractice.UI.Common
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

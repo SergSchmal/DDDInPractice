@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using DddInPractice.UI.Common;
-using DDDInPractice.Logic;
-using NHibernate;
+using DDDInPractice.Logic.SharedKernel;
+using DDDInPractice.Logic.SnackMachines;
+using DDDInPractice.UI.Common;
 
-namespace DDDInPractice.UI.ViewModels
+namespace DDDInPractice.UI.SnackMachines.ViewModels
 {
     public class SnackMachineViewModel : BaseViewModel
     {

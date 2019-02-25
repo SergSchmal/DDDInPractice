@@ -1,5 +1,6 @@
 ﻿using System;
 using DDDInPractice.Logic;
+using DDDInPractice.Logic.SnackMachines;
 using FluentAssertions;
 using Xunit;
 

@@ -1,6 +1,7 @@
-﻿using NHibernate;
+﻿using DDDInPractice.Logic.Utils;
+using NHibernate;
 
-namespace DDDInPractice.Logic
+namespace DDDInPractice.Logic.Common
 {
     public abstract class Repository<T> where T : AggregateRoot
     {

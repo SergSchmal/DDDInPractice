@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using DDDInPractice.Logic;
-using DDDInPractice.UI.ViewModels;
+using DDDInPractice.Logic.SnackMachines;
+using DDDInPractice.UI.SnackMachines.ViewModels;
 
-namespace DDDInPractice.UI.Views
+namespace DDDInPractice.UI.SnackMachines.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
