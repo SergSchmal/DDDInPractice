@@ -43,7 +43,7 @@ namespace DDDInPractice.Logic.Atms
             MoneyInside += money;
         }
 
-        private decimal CalculateAmountWithCommission(decimal amount)
+        public virtual decimal CalculateAmountWithCommission(decimal amount)
         {
             var commission = amount * CommissionRate;
             var lessThanCent = commission % 0.01m;
